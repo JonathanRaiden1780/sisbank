@@ -8,6 +8,14 @@ import { ClientRegisterComponent } from './components/client-register/client-reg
 import { AccountsComponent } from './components/accounts/accounts.component';
 import { TransferComponent } from './components/transfer/transfer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RegisterComponent } from './components/register/register.component';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from  '@angular/fire/firestore';
+
+import { environment } from 'src/environments/environment';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,12 +23,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LoginComponent,
     ClientRegisterComponent,
     AccountsComponent,
-    TransferComponent
+    TransferComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireAuth,
+    FormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
