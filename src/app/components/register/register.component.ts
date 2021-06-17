@@ -8,13 +8,12 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
 
   constructor(
     private router: Router,
-    private authsService: AuthService,
-    public userData: UserInterface
-  ) { }
+    private authsService: AuthService
+  ) { };
   password= '';
   type='';
   id= '';
@@ -30,8 +29,8 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
   
-  addNewUser(){
-    this.authsService.registerUser(this.userData.email,this.password)
-  }
+   addNewUser(){
+    this.authsService.registerUser(this.email,this.password)
+  } 
 
 }
